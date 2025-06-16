@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutoriais</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">CozinhaFácil</a>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="categorias.html">Categorias</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Tutoriais de Cozinha</h1>
+    <nav id="lista-tutoriais" style="margin-bottom:2.5rem;text-align:center;">
+      <strong>Escolha uma receita:</strong>
+      <ul style="display:inline-block;text-align:left;margin-top:0.7rem;">
+        <li><a href="#bolo-cenoura">Bolo de Cenoura</a></li>
+        <li><a href="#pao-queijo">Pão de Queijo</a></li>
+        <li><a href="#brigadeiro">Brigadeiro</a></li>
+      </ul>
+    </nav>
+
+    <div id="tutoriais-container">
+      <section id="bolo-cenoura" class="tutorial-section" style="display:none;">
+        <h2>Bolo de Cenoura</h2>
+        <span class="category">Bolos</span>
+        <p>Aprenda a fazer um delicioso bolo de cenoura fofinho com cobertura de chocolate.</p>
+
+        <h3>Ingredientes</h3>
+        <ul>
+          <li>3 cenouras médias</li>
+          <li>4 ovos</li>
+          <li>1 xícara de óleo</li>
+          <li>2 xícaras de açúcar</li>
+          <li>2 e 1/2 xícaras de farinha de trigo</li>
+          <li>1 colher (sopa) de fermento em pó</li>
+        </ul>
+
+        <h3>Modo de Preparo</h3>
+        <ol>
+          <li>Bata no liquidificador as cenouras, ovos e óleo até ficar homogêneo.</li>
+          <li>Adicione o açúcar e bata mais um pouco.</li>
+          <li>Transfira para uma tigela e misture a farinha e o fermento.</li>
+          <li>Despeje em forma untada e asse em forno médio (180°C) por cerca de 40 minutos.</li>
+        </ol>
+
+        <h3>Dicas</h3>
+        <p>Para a cobertura, derreta 1 colher de manteiga, 3 colheres de chocolate em pó, 1 xícara de açúcar e 1/2
+          xícara de leite até engrossar.</p>
+        <button onclick="javascript:history.back()">Voltar</button>
+      </section>
+
+      <section id="pao-queijo" class="tutorial-section" style="display:none;">
+        <h2>Pão de Queijo</h2>
+        <span class="category">Salgados</span>
+        <p>Receita tradicional de pão de queijo mineiro, crocante por fora e macio por dentro.</p>
+
+        <h3>Ingredientes</h3>
+        <ul>
+          <li>500g de polvilho doce</li>
+          <li>250ml de leite</li>
+          <li>100ml de óleo</li>
+          <li>2 ovos</li>
+          <li>200g de queijo minas ralado</li>
+          <li>Sal a gosto</li>
+        </ul>
+
+        <h3>Modo de Preparo</h3>
+        <ol>
+          <li>Ferva o leite com o óleo e misture ao polvilho.</li>
+          <li>Deixe esfriar, adicione os ovos e o queijo, misture bem.</li>
+          <li>Modele bolinhas e asse em forno pré-aquecido a 200°C até dourar.</li>
+        </ol>
+
+        <h3>Dicas</h3>
+        <p>Use queijo meia cura para um sabor mais autêntico.</p>
+        <button onclick="javascript:history.back()">Voltar</button>
+      </section>
+
+      <section id="brigadeiro" class="tutorial-section" style="display:none;">
+        <h2>Brigadeiro</h2>
+        <span class="category">Doces</span>
+        <p>Como fazer brigadeiro simples e rápido para festas e sobremesas.</p>
+
+        <h3>Ingredientes</h3>
+        <ul>
+          <li>1 lata de leite condensado</li>
+          <li>1 colher (sopa) de manteiga</li>
+          <li>3 colheres (sopa) de chocolate em pó</li>
+          <li>Chocolate granulado para enrolar</li>
+        </ul>
+
+        <h3>Modo de Preparo</h3>
+        <ol>
+          <li>Em uma panela, misture o leite condensado, manteiga e chocolate.</li>
+          <li>Cozinhe em fogo baixo, mexendo sempre, até desgrudar do fundo.</li>
+          <li>Deixe esfriar, enrole e passe no granulado.</li>
+        </ol>
+
+        <h3>Dicas</h3>
+        <p>Unte as mãos com manteiga para enrolar mais fácil.</p>
+        <button onclick="javascript:history.back()">Voltar</button>
+      </section>
+
+      <div id="tutorial-instrucao" style="text-align:center;margin:2rem 0;">
+        <p>Selecione uma receita para visualizar o tutorial completo.</p>
+      </div>
+    </div>
+    <script src="../js/app.js"></script>
+  </main>
+
+  <script>
+    function mostrarTutorialPorHash() {
+      const hash = window.location.hash.replace('#', '');
+      const todas = document.querySelectorAll('.tutorial-section');
+      todas.forEach(sec => sec.style.display = 'none');
+      document.getElementById('tutorial-instrucao').style.display = 'none';
+      if (hash && document.getElementById(hash)) {
+        document.getElementById(hash).style.display = 'block';
+      } else {
+        document.getElementById('tutorial-instrucao').style.display = 'block';
+      }
+    }
+    window.addEventListener('hashchange', mostrarTutorialPorHash);
+    window.addEventListener('DOMContentLoaded', mostrarTutorialPorHash);
+  </script>
+</body>
+</html>
